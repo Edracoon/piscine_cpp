@@ -3,12 +3,12 @@
 
 Contact::Contact(void)
 {
-	std::cout << "Constructor called Contact" << std::endl;
+	// std::cout << "Constructor called Contact" << std::endl;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructor called Contact" << std::endl;
+	// std::cout << "Destructor called Contact" << std::endl;
 }
 
 void	Contact::setFirstname(std::string str)
