@@ -6,7 +6,6 @@ CXX =		clang++
 
 SRCS =		$(wildcard *.cpp)
 
-
 OBJS =		$(SRCS:.cpp=.o)
 
 all:		$(NAME)
