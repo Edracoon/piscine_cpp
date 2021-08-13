@@ -9,6 +9,7 @@ int	main(void)
 
 	while (1)
 	{
+		std::cout << "*> ";
 		std::cin >> buf;
 		if (buf == "ADD")
 			instance.addcontact();
