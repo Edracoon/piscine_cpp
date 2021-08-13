@@ -4,11 +4,12 @@
 Zombie::Zombie(std::string _name)
 {
 	setName(_name);
+	std::cout << "Zombie " << _name << " were created" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Destructor: " << getName() << std::endl;
+	std::cout << "Zombie " << getName() << " were killed" << std::endl;
 }
 
 void	Zombie::setName(std::string name)
