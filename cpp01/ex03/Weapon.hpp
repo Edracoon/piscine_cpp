@@ -8,3 +8,5 @@ class Weapon
 
 	public:
 };
+
+#endif
