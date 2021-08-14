@@ -1,4 +1,4 @@
-NAME =		zombie
+NAME =		unnecessary_violence
 
 CXXFLAGS +=	-Wall -Wextra -Werror
 

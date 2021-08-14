@@ -1,6 +1,12 @@
 #include <iostream>
 #include "Zombie.hpp"
 
+Zombie::Zombie(void)
+{
+	// setName(_name);
+	std::cout << "One zombie of the horde is created" << std::endl;
+}
+
 Zombie::Zombie(std::string _name)
 {
 	setName(_name);

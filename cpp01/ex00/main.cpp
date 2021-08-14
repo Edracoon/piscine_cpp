@@ -2,15 +2,19 @@
 #include "Zombie.hpp"
 
 Zombie* 	newZombie(std::string name);
+void 		randomChump(std::string name);
 
 int	main(void)
 {
 	Zombie Florent = Zombie("Florent");
-	Zombie *Kevin = new Zombie("Kevin");
 	Florent.announce();
 
-	Zombie *Micka = newZombie("Micka");
-	delete Kevin;
+	randomChump("Pascal");
+
+	Zombie* Micka = newZombie("Micka");
+	Micka->announce();
+
 	delete Micka;
+
 	return (0);
 }

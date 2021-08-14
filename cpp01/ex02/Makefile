@@ -1,4 +1,4 @@
-NAME =		zombie
+NAME =		reference
 
 CXXFLAGS +=	-Wall -Wextra -Werror
 
