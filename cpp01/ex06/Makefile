@@ -1,4 +1,4 @@
-NAME =		karen
+NAME =		karenFilter
 
 CXXFLAGS +=	-Wall -Wextra -Werror -std=c++98
 
