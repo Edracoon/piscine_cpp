@@ -1,6 +1,6 @@
 NAME =		canon
 
-CXXFLAGS +=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS += #	-Wall -Wextra -Werror -std=c++98
 
 CXX =		clang++
 

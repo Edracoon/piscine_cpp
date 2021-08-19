@@ -1,60 +1,129 @@
 #include "Fixed.hpp"
 
+// =============================
+// ====== PRINT OPERATOR =======
+// =============================
+
 std::ostream&	operator<<(std::ostream& ifs, Fixed const & rhs )
 {
 	std::cout << rhs.toFloat();
 	return (ifs);
 }
 
+// ==============================
+// ==== ASSIGNATION OPERATOR ==== 
+// ==============================
+
 Fixed&	Fixed::operator=( Fixed const & rhs )
 {
-	std::cout << "Assignation operator called" << std::endl;
+	// std::cout << "Assignation operator called" << std::endl;
 	this->_pf = rhs.getRawBits();
 	return (*this);
 }
 
-inline bool operator>(const Fixed& lhs, const Fixed& rhs)
+// =================================
+// ==== INCREMENTATION OPERATOR ====
+// =================================
+
+Fixed&	Fixed::operator++( void )
 {
-	return (rhs > lhs);
+	this->_pf++;
+	return (*this);
 }
 
-inline bool operator<(const Fixed& lhs, const Fixed& rhs)
+Fixed	Fixed::operator++( int )
 {
-	return (rhs < lhs);
+	Fixed temp(*this);
+
+	operator++();
+	return (temp);
+}
+// =================================
+// ==== DECREMENTATION OPERATOR ====
+// =================================
+
+Fixed&	Fixed::operator--( void )
+{
+	this->_pf--;
+	return (*this);
 }
 
-inline bool operator>=(const Fixed& lhs, const Fixed& rhs)
+Fixed	Fixed::operator--( int )
 {
-	return !(lhs < rhs);
+	Fixed temp(*this);
+
+	operator--();
+	return (temp);
 }
 
-inline bool operator<=(const Fixed& lhs, const Fixed& rhs)
+// =============================
+// ======= DIFF OPERATOR =======
+// =============================
+
+bool	Fixed::operator>( const Fixed& rhs )
 {
-	return !(lhs > rhs);
+	return (this->getRawBits() > rhs.getRawBits());
 }
 
-Fixed&	Fixed::operator==( Fixed const & rhs )
+bool	Fixed::operator<( const Fixed& rhs )
 {
-
+	return (this->getRawBits() < rhs.getRawBits());
 }
 
-
-Fixed&	Fixed::operator+( Fixed const & rhs )
+bool	Fixed::operator<=( const Fixed& rhs )
 {
-
+	return !(rhs.getRawBits() > this->getRawBits());
 }
 
-Fixed&	Fixed::operator-( Fixed const & rhs )
+bool	Fixed::operator>=( const Fixed& rhs )
 {
-
+	return !(rhs.getRawBits() < this->getRawBits());
 }
 
-Fixed&	Fixed::operator*( Fixed const & rhs )
+bool	Fixed::operator==( Fixed const & rhs )
 {
-
+	return (this->getRawBits() == rhs.getRawBits());
 }
 
-Fixed&	Fixed::operator/( Fixed const & rhs )
+bool	Fixed::operator!=( Fixed const & rhs )
 {
+	return (this->getRawBits() != rhs.getRawBits());
+}
 
+// =============================
+// ==== ARITHMETIC OPERATOR ====
+// =============================
+
+Fixed	Fixed::operator+( Fixed const & rhs )
+{
+	Fixed temp(*this);
+
+	temp.setRawBits(this->getRawBits() + rhs.getRawBits());
+	return (temp);
+}
+
+Fixed	Fixed::operator-( Fixed const & rhs )
+{
+	Fixed temp(*this);
+
+	temp.setRawBits(this->getRawBits() - rhs.getRawBits());
+	return (temp);
+}
+
+Fixed	Fixed::operator*( Fixed const & rhs )
+{
+	Fixed	temp(*this);
+
+	// std::cout << (this->getRawBits()) << " * " << (rhs.getRawBits()) << std::endl;
+	temp.setRawBits((this->getRawBits() * rhs.getRawBits()) >> temp._bf);
+
+	return (temp);
+}
+
+Fixed	Fixed::operator/( Fixed const & rhs )
+{
+	Fixed	temp(*this);
+
+	temp.setRawBits((this->getRawBits() << temp._bf) / rhs.getRawBits());
+	return (temp);
 }

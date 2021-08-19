@@ -1,5 +1,9 @@
 #include "Fixed.hpp"
 
+// =============================
+// ======== CONSTRUCTORS =======
+// =============================
+
 Fixed::Fixed( void )
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -12,10 +16,18 @@ Fixed::Fixed( Fixed const & rhs )
 	*this = rhs;
 }
 
+// =============================
+// ======== DESTRUCTOR =========
+// =============================
+
 Fixed::~Fixed( void )
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+// ==============================
+// ==== ASSIGNATION OPERATOR ====
+// ==============================
 
 Fixed&	Fixed::operator=( Fixed const & rhs )
 {
@@ -23,6 +35,10 @@ Fixed&	Fixed::operator=( Fixed const & rhs )
 	this->_pf = rhs.getRawBits();
 	return (*this);
 }
+
+// =============================
+// ==== SET / GET FUNCTIONS ====
+// =============================
 
 void	Fixed::setRawBits( int const raw )
 {
