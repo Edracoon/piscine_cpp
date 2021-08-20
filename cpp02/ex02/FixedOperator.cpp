@@ -114,8 +114,8 @@ Fixed	Fixed::operator*( Fixed const & rhs )
 {
 	Fixed	temp(*this);
 
-	// std::cout << (this->getRawBits()) << " * " << (rhs.getRawBits()) << std::endl;
-	temp.setRawBits((this->getRawBits() * rhs.getRawBits()) >> temp._bf);
+	// std::cout << (this->getRawBits() >> 8) << " * " << (rhs.getRawBits()) << std::endl;
+	temp.setRawBits((this->getRawBits() >> temp._bf ) * rhs.getRawBits());
 
 	return (temp);
 }
@@ -124,6 +124,7 @@ Fixed	Fixed::operator/( Fixed const & rhs )
 {
 	Fixed	temp(*this);
 
+	// std::cout << (this->getRawBits() << 8 ) << " / " << (rhs.getRawBits()) << std::endl;
 	temp.setRawBits((this->getRawBits() << temp._bf) / rhs.getRawBits());
 	return (temp);
 }

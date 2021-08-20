@@ -3,7 +3,7 @@
 int	main( void )
 {
 	Fixed a;
-	Fixed b(10);
+	Fixed b(300);
 	Fixed c(42.42f);
 	Fixed d(b);
 
