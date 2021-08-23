@@ -6,6 +6,7 @@
 class ClapTrap
 {
 	private:
+			// ==== Stats ====
 			std::string		_name;
 			unsigned int	_HitPoins;
 			unsigned int	_EnergyPoints;
@@ -20,18 +21,22 @@ class ClapTrap
 			// ==== Operators ====
 			ClapTrap&	operator=( ClapTrap const & rhs);
 
-			// ==== Set / Get =====
-			std::string		getName( void );
-			void			setName(std::string name);
-			unsigned int	getAttDmg( void );
-			void			setAttdmg( unsigned int dmg );
-
 			// ==== Actions ====
 			void	attack(std::string const & target);
 			void	takeDamage(unsigned int amount);
 			void	beRepaired(unsigned int amount);
+
+			// ==== Set / Get =====
+			std::string		getName( void ) const;
+			void			setName(std::string name);
+			unsigned int	getAttDmg( void ) const ;
+			void			setAttdmg( unsigned int dmg );
+			unsigned int	getHP( void ) const ;
+			void			setHP( unsigned int hp );
+			unsigned int	getEP( void ) const ;
+			void			setEP( unsigned int ep );
 };
 
-std::ostream	operator<<(std::ostream& ofs, ClapTrap const & rhs);
+std::ostream&	operator<<(std::ostream& ofs, ClapTrap const & rhs);
 
 #endif

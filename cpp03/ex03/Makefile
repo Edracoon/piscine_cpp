@@ -1,4 +1,4 @@
-NAME =		scavtrap
+NAME =		diamondtrap
 
 CXXFLAGS += -Wall -Wextra -Werror -std=c++98
 
