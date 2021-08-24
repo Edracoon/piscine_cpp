@@ -35,6 +35,8 @@ int main(void)
 	std::cout << "=========================" << std::endl;
 
 	// ===== Test to Intantiate Abstract Class ==== 
-	// const Animal	aclass;
+	// const Animal		aclass1
+	// const Animal*	aclass2;
+	// aclass = new Animal();
 	// -> Not possible
 }
