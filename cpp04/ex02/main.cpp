@@ -33,4 +33,8 @@ int main(void)
 	b.makeSound();
 	delete a;
 	std::cout << "=========================" << std::endl;
+
+	// ===== Test to Intantiate Abstract Class ==== 
+	// const Animal	aclass;
+	// -> Not possible
 }
