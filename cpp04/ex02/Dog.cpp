@@ -17,8 +17,7 @@ Dog::Dog( std::string type )
 Dog::Dog( Dog const & rhs )
 {
 	std::cout << "Copy Dog Constructor" << std::endl;
-	this->brain = new Brain();
-	this->brain = rhs.brain;
+	*this = rhs;
 }
 
 Dog::~Dog( void )
@@ -40,4 +39,11 @@ void		Dog::setType(std::string type) {
 
 std::string	Dog::getType() const {
 	return (this->type);
+}
+
+Dog&		Dog::operator=(Dog const & rhs)
+{
+	this->brain = new Brain(*(rhs.brain));
+	this->setType(rhs.getType());
+	return (*this);
 }

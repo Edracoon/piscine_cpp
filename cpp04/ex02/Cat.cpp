@@ -17,8 +17,7 @@ Cat::Cat( std::string type )
 Cat::Cat( Cat const & rhs )
 {
 	std::cout << "Copy Cat Constructor" << std::endl;
-	this->brain = new Brain();
-	this->brain->setIdeas(rhs.brain->getIdeas());
+	*this = rhs;
 }
 
 Cat::~Cat( void )
@@ -33,11 +32,18 @@ void	Cat::makeSound( void ) const
 	std::cout << "The Cat is meowing" << std::endl;
 }
 
-// === set / get === 
+// === Set / Get === 
 void		Cat::setType(std::string type) {
 	this->type = type;
 }
 
 std::string	Cat::getType() const {
 	return (this->type);
+}
+
+Cat&		Cat::operator=(Cat const & rhs)
+{
+	this->brain = new Brain(*(rhs.brain));
+	this->setType(rhs.getType());
+	return (*this);
 }

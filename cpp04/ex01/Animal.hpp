@@ -20,6 +20,8 @@ class Animal
 
 			// === Method ===
 			virtual void	makeSound() const ;
+
+			Animal&		operator=(Animal const & rhs);
 };
 
 #endif

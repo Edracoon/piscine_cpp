@@ -18,6 +18,8 @@ class Dog : public Animal
 		
 			// === method ===
 			virtual void	makeSound( void ) const ;
+
+			Dog&	operator=(Dog const & rhs);
 };
 
 #endif

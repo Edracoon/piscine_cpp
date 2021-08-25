@@ -20,6 +20,9 @@ class WrongAnimal
 
 			// === Method ===
 			void	makeSound() const ;
+
+			WrongAnimal&			operator=(WrongAnimal const & rhs);
+
 };
 
 #endif

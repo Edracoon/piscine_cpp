@@ -24,14 +24,11 @@ Brain::~Brain( void )
 	std::cout << "Destructor Brain" << std::endl;
 }
 
-// === Set / Get ===
+// === Operator ===
 
-void			Brain::setIdeas(std::string idea[])
+Brain&		Brain::operator=(Brain const & rhs)
 {
 	for (int i = 0 ; i < 100 ; i++)
-		this->ideas[i].assign(idea[i]);
-}
-
-std::string*	Brain::getIdeas( void ) {
-	return (this->ideas);
+		this->ideas[i] = rhs.ideas[i];
+	return (*this);
 }

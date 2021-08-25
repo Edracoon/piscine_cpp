@@ -25,7 +25,6 @@ int main(void)
 	}
 	std::cout << "=========================" << std::endl;
 
-
 	std::cout << "==== Deep Copy Tests ====" << std::endl;
 	const Cat*	a = new Cat();
 	const Cat	b(*a);

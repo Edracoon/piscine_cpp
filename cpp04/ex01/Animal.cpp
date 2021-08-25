@@ -28,7 +28,6 @@ void		Animal::setType(std::string type) {
 	this->type = type;
 }
 
-
 std::string	Animal::getType() const {
 	return (this->type);
 }
@@ -37,4 +36,10 @@ std::string	Animal::getType() const {
 void	Animal::makeSound() const 
 {
 	std::cout << "An animal is making a sound" << std::endl;
+}
+
+Animal&		Animal::operator=(Animal const & rhs)
+{
+	this->setType(rhs.getType());
+	return (*this);
 }

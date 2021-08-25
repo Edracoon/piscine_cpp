@@ -21,6 +21,8 @@ class Dog : public Animal
 		
 			// === method ===
 			void	makeSound( void ) const ;
+
+			Dog&		operator=(Dog const & rhs);
 };
 
 #endif

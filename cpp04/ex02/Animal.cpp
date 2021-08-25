@@ -38,3 +38,9 @@ void	Animal::makeSound() const
 {
 	std::cout << "An animal is making a sound" << std::endl;
 }
+
+Animal&		Animal::operator=(Animal const & rhs)
+{
+	this->setType(rhs.getType());
+	return (*this);
+}

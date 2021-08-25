@@ -20,7 +20,10 @@ class Cat : public Animal
 			std::string	getType() const;
 			
 			// === method ===
-			void	makeSound( void ) const ;
+			void		makeSound( void ) const ;
+
+			Cat&		operator=(Cat const & rhs);
+
 };
 
 #endif

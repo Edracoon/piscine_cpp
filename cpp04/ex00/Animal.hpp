@@ -12,7 +12,7 @@ class Animal
 			Animal( void );
 			Animal( std::string type );
 			Animal( Animal const & rhs );
-			~Animal( void );
+			virtual ~Animal( void );
 
 			// === Set / Get ===
 			void		setType(std::string type);
@@ -20,6 +20,8 @@ class Animal
 
 			// === Method ===
 			virtual void	makeSound() const ;
+
+			Animal&			operator=(Animal const & rhs);
 };
 
 #endif

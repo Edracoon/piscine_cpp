@@ -20,7 +20,8 @@ int main()
 	Catti->makeSound(); 	// Cat sound
 	Doggo->makeSound(); 	// Dog sound
 	Ani->makeSound();		// Animal Sound
-
+	const Animal* test = new Animal(*Ani);
+	test->makeSound();
 	std::cout << "====== Wrong Test =====" << std::endl;
 	
 	const WrongAnimal* wAni	= new WrongAnimal();
@@ -28,4 +29,11 @@ int main()
 
 	wAni->makeSound();		// Wrong Animal Sound;
 	wCat->makeSound();		// Wrong Cat Sound -> Animal Sound;
+
+	delete wAni;
+	delete wCat;
+
+	delete Ani;
+	delete Doggo;
+	delete Catti;
 }

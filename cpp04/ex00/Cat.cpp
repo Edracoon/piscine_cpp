@@ -37,3 +37,9 @@ void		Cat::setType(std::string type) {
 std::string	Cat::getType() const {
 	return (this->type);
 }
+
+Cat&	Cat::operator=(Cat const & rhs)
+{
+	this->setType(rhs.getType());
+	return (*this);
+}

@@ -37,3 +37,9 @@ void		WrongCat::setType(std::string type) {
 std::string	WrongCat::getType() const {
 	return (this->type);
 }
+
+WrongCat&			WrongCat::operator=(WrongCat const & rhs)
+{
+	this->setType(rhs.getType());
+	return (*this);
+}

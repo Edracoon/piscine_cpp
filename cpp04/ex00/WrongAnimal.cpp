@@ -36,3 +36,9 @@ void	WrongAnimal::makeSound() const
 {
 	std::cout << "A WrongAnimal is making a sound" << std::endl;
 }
+
+WrongAnimal&			WrongAnimal::operator=(WrongAnimal const & rhs)
+{
+	this->setType(rhs.getType());
+	return (*this);
+}

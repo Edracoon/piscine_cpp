@@ -24,7 +24,7 @@ Dog::~Dog( void )
 }
 
 // === Method ===
-void	Dog::makeSound( void ) const 
+void	Dog::makeSound( void ) const
 {
 	std::cout << "The Dog is barking" << std::endl;
 }
@@ -36,4 +36,10 @@ void		Dog::setType(std::string type) {
 
 std::string	Dog::getType() const {
 	return (this->type);
+}
+
+Dog&	Dog::operator=(Dog const & rhs)
+{
+	this->setType(rhs.getType());
+	return (*this);
 }

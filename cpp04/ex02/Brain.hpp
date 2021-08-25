@@ -13,8 +13,7 @@ class Brain
 			Brain( Brain const & rhs );
 			~Brain( void );
 
-			void			setIdeas(std::string idea[]);
-			std::string*	getIdeas( void );
+			Brain&		operator=(Brain const & rhs);
 };
 
 #endif

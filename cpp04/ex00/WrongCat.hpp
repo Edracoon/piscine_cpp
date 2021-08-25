@@ -18,6 +18,7 @@ class WrongCat : public WrongAnimal
 			
 			// === method ===
 			void	makeSound( void ) const ;
+			WrongCat&	operator=(WrongCat const & rhs);
 };
 
 #endif
