@@ -39,8 +39,6 @@ int main()
 	ICharacter*	me = new Character("me");
 	std::cout << me->getName() << std::endl;
 
-	
-
 	std::cout << "=============" << std::endl;
 
 	return (0);
