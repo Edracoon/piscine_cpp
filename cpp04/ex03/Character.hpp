@@ -9,6 +9,7 @@ class Character : public ICharacter
 	private:
 			std::string		_name;
 			AMateria*		Materia[4];
+			int				index;
 	public:
 		Character( void );
 		Character( std::string name );
@@ -20,6 +21,8 @@ class Character : public ICharacter
 		virtual void		equip(AMateria* m);
 		virtual void		unequip(int idx);
 		virtual void		use(int idx, ICharacter& target);
+
+		Character&	operator=(Character const & rhs);
 };
 
 #endif

@@ -29,6 +29,12 @@ std::string const & AMateria::getType() const {
 
 void AMateria::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "virtual : * shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "virtual : * heals " << target.getName() << "'s wounds *" << std::endl;
+}
+
+AMateria&	AMateria::operator=(AMateria const & rhs)
+{
+	this->type = rhs.type;
+	return (*this);
 }

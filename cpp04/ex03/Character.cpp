@@ -5,6 +5,7 @@ Character::Character( void )
 	std::cout << "Character Default Constructor" << std::endl;
 	for (int i = 0 ; i < 4 ; i++)
 		this->Materia[i] = NULL;
+	this->index = 0;
 }
 
 Character::Character( std::string name ) 
@@ -13,19 +14,20 @@ Character::Character( std::string name )
 	this->_name = name;
 	for (int i = 0 ; i < 4 ; i++)
 		this->Materia[i] = NULL;
+	this->index = 0;
 }
 
 Character::Character( Character const & rhs )
 {
 	std::cout << "Character Copy Constructor" << std::endl;
-	this->_name = rhs.getName();
-	for (int i = 0 ; i < 4 ; i++)
-		this->Materia[i] = rhs.getMateria(i);
+	*this = rhs;
 }
 
 Character::~Character( void )
 {
 	std::cout << "Character Destructor" << std::endl;
+	for (int i = 0; i < 4 ; i++)
+		delete Materia[i];
 }
 
 std::string const &	Character::getName() const {
@@ -38,16 +40,36 @@ AMateria*	const & Character::getMateria(int i) const {
 
 void				Character::equip(AMateria* m) 
 {
-	(void)m;
+	if (this->index < 4)
+	{
+		if (Materia[this->index] == NULL)
+			this->Materia[this->index] = m;
+		this->index++;
+	}
 }
 
 void				Character::unequip(int idx)
 {
-	(void)idx;
+	if (idx < 4)
+	{
+		this->Materia[idx] = NULL;
+		this->index = idx;
+	}
 }
 
 void				Character::use(int idx, ICharacter& target)
 {
-	(void)idx;
-	(void)target;
+	if (idx < 4 && this->Materia[idx] != NULL)
+	{
+		this->Materia[idx]->use(target);
+	}
+}
+
+Character&	Character::operator=(Character const & rhs)
+{
+	this->_name = rhs.getName();
+	for (int i = 0 ; i < 4 ; i++)
+		this->Materia[i] = rhs.getMateria(i)->clone();
+	this->index = rhs.index;
+	return (*this);
 }

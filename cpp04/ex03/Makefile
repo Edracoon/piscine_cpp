@@ -1,6 +1,6 @@
 NAME =		interface
 
-CXXFLAGS += -Wall -Wextra -Werror -std=c++98
+CXXFLAGS += -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 CXX =		clang++
 
