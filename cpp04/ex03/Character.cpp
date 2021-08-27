@@ -25,11 +25,11 @@ Character::Character( Character const & rhs )
 
 Character::~Character( void )
 {
-	std::cout << "Character Destructor" << std::endl;
 	for (int i = 0; i < this->index ; i++)
 	{
 		delete Materia[i];
 	}
+	std::cout << "Character Destructor" << std::endl;
 }
 
 std::string const &	Character::getName() const {
