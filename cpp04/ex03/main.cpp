@@ -56,6 +56,7 @@ int main()
 
 	delete	me;
 	delete	bob;
+	delete	src;
 	std::cout << "=============" << std::endl;
 
 	return (0);

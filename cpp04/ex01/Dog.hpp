@@ -20,7 +20,7 @@ class Dog : public Animal
 			std::string	getType()const;
 		
 			// === method ===
-			void	makeSound( void ) const ;
+			virtual void	makeSound( void ) const ;
 
 			Dog&		operator=(Dog const & rhs);
 };

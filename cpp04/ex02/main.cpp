@@ -36,7 +36,5 @@ int main(void)
 
 	// ===== Test to Intantiate Abstract Class ==== 
 	// const Animal		aclass1;
-	// const Animal*	aclass2;
-	// aclass = new Animal();
 	// -> Not possible
 }

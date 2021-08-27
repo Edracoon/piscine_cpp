@@ -18,7 +18,7 @@ class Animal
 			void		setType(std::string type);
 			std::string	getType()const;
 
-			// === Method ===
+			// === Method purement virtuel ===
 			virtual void	makeSound() const = 0;
 
 			Animal& operator=(Animal const & rhs);

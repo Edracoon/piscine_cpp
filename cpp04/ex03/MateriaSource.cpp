@@ -16,9 +16,12 @@ MateriaSource::MateriaSource( MateriaSource const & rhs)
 
 MateriaSource::~MateriaSource( void )
 {
+	for (int i = 0 ; i < this->idx ; i++)
+	{
+		if (source[i] != NULL)
+			delete source[i];
+	}
 	std::cout << "MateriaSource Destructor" << std::endl;
-	for (int i = 0 ; i < 4 ; i++)
-		delete source[i];
 }
 
 void	MateriaSource::learnMateria( AMateria* learned)
@@ -39,7 +42,7 @@ AMateria*	MateriaSource::createMateria( std::string const & type )
 		if (this->tab[i] == type)
 		{
 			std::cout << "createMateria i = " << i << " type = "<< this->source[i]->getType() << std::endl;
-			return (this->source[i]);
+			return (this->source[i]->clone());
 		}
 	}
 	return (0);
@@ -48,6 +51,6 @@ AMateria*	MateriaSource::createMateria( std::string const & type )
 MateriaSource&	MateriaSource::operator=(MateriaSource const & rhs)
 {
 	for (int i = 0 ; i < 4 ; i++)
-		this->source[i] = rhs.source[i];
+		this->source[i] = rhs.source[i]->clone();
 	return (*this);
 }
