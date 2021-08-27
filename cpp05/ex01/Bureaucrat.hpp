@@ -24,7 +24,7 @@ class	Bureaucrat
 			class GradeTooHighException : public std::exception // J'herite de la class std::exception
 			{
 				public: // Je redefinie la methode what() selon ce que je veux moi renvoyer dans mon exception
-					virtual const char* what() const throw() /* Je precise que cette methode ne throw rien */
+					virtual const char* what() const throw( /* In peut throw quelque chose de specifique mais ici rien */ )	
 					{
 						return ("Error: Grade too High");
 					}

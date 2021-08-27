@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
@@ -14,7 +15,10 @@ int	main(void)
 		std::cout << Ed << std::endl;
 		Ed.decreaseGrade();
 		std::cout << Ed << std::endl;
-		Ed.decreaseGrade(); // Grade is now 151 == Error => Exception is catched
+		// Ed.decreaseGrade(); // Grade is now 151 == Error => Exception is catched
+		Form fichier("Formulaire", 100, 50);
+		Form fichier1;
+		std::cout << fichier << std::endl;
 	}
 	// catch (Bureaucrat::GradeTooLowException ex)	// -> catch specifique a mon erreur "too low"
 	// {

@@ -7,7 +7,7 @@ Bureaucrat::Bureaucrat( const std::string name, int note ) : _name(name), _note(
 {
 	if (note < 1)
 		throw Bureaucrat::GradeTooHighException();
-	if (note > 150)
+	else if (note > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
 
