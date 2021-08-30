@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main(void)
 {
@@ -11,19 +12,23 @@ int	main(void)
 		Kev.increaseGrade();					// Decre du Grade
 		std::cout << Kev << std::endl;			// Affiche de Kev
 
-		Bureaucrat	Ed("Edgar", 101);			// Creation d'Ed
+		Bureaucrat	Ed("Edgar", 138);			// Creation d'Ed
 		std::cout << Ed << std::endl;			// Affichage d'Ed
 		Ed.increaseGrade();						// incre du Grade
 		std::cout << Ed << std::endl;			// Affiche d'Ed
 
-		// for (int i = 0 ; i < 51 ; i++)
+		// for (int i = 0 ; i < 51 ; i++)	
 		// 	Ed.decreaseGrade();
 		// Grade is now 151 == Error => Exception is catched = Grade too low
 
-		Form fichier("Formulaire", 100, 50);	// Creation d'un Form
-		std::cout << fichier << std::endl;		// Affichage Form
-		fichier.beSigned(Ed);					// Signer un Form
-		std::cout << fichier << std::endl;		// Affichage du Form
+		ShrubberyCreationForm	shrub("maison");	// Creation d'un Form
+		std::cout << shrub << std::endl;		// Affichage Form
+		shrub.beSigned(Ed);					// Signer un Form
+		std::cout << shrub << std::endl;		// Affichage du Form
+		shrub.execute(Ed);
+
+		ShrubberyCreationForm	test(shrub); // Constructeur par copy marche pas
+		std::cout << test << std::endl;	// Attention faire une surchage sur l'operateur=
 	}
 	// catch (Bureaucrat::GradeTooLowException ex)	// -> catch specifique a mon erreur "too low"
 	// {

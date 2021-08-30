@@ -42,7 +42,6 @@ class	Bureaucrat
 						return ("Bureaucrat: Grade too Low");
 					}
 			};
-
 			Bureaucrat&	operator=(Bureaucrat const & rhs);
 };
 

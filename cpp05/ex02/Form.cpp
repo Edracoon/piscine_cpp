@@ -74,3 +74,11 @@ void		Form::beSigned(Bureaucrat & rhs)
 		throw Form::GradeTooLowException();
 	}
 }
+
+void		Form::verifGrade(Form const & form, Bureaucrat const & executor) const
+{
+	if (form._signed == false)
+		throw Form::NotSignedException();
+	if (executor.getNote() > form._gradeExec)
+		throw Form::GradeTooLowException();
+}
