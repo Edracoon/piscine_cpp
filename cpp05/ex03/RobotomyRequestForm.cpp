@@ -30,13 +30,19 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	;
 }
 
-void	RobotomyRequestForm::Action( void ) const
+void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
+{
+	verifGrade(*this, executor);
+	this->Action(this->target);
+}
+
+void	RobotomyRequestForm::Action(const std::string target) const
 {
 	int random = rand() % 100 + 1;
 
 	std::cout << "Action RobotomyRequestForm : *drilling noise* ..." << std::endl;
 	if (random >= 50)
-		std::cout << this->target  << " has been robotomized successfully" << std::endl;
+		std::cout << target  << " has been robotomized successfully" << std::endl;
 	else
 		std::cout << "Robotomy Failure" << std::endl;
 }

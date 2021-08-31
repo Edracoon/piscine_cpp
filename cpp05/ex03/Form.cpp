@@ -80,13 +80,6 @@ void		Form::beSigned(Bureaucrat & rhs)
 	}
 }
 
-void	Form::execute( Bureaucrat const & executor ) const
-{
-	verifGrade(*this, executor);
-	std::cout << "<" << executor.getName() << ">" << " executes " << "<" << this->getName() << ">" << std::endl;
-	this->Action();
-}
-
 void		Form::verifGrade(Form const & form, Bureaucrat const & executor) const
 {
 	if (form._signed == false)

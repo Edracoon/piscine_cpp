@@ -30,9 +30,15 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	;
 }
 
-void	ShrubberyCreationForm::Action( void ) const
+void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 {
-	std::string		fileout = this->target + "_shrubbery";
+    verifGrade(*this, executor);
+    this->Action(this->target);
+}
+
+void	ShrubberyCreationForm::Action(const std::string target) const
+{
+	std::string		fileout = target + "_shrubbery";
 	std::ofstream	ofs(fileout);
 
     std::cout << "Action ShrubberyCreationForm -> Planting a Tree..." << std::endl;

@@ -14,10 +14,10 @@ class ShrubberyCreationForm : public Form
 			ShrubberyCreationForm( void );
 			ShrubberyCreationForm( std::string target );
 			ShrubberyCreationForm( ShrubberyCreationForm const & rhs );
-			virtual ~ShrubberyCreationForm();
-
+			~ShrubberyCreationForm();
 			ShrubberyCreationForm& operator=(ShrubberyCreationForm const & rhs);
-			virtual void	Action( void ) const;
+			virtual void	execute( Bureaucrat const & executor ) const;
+			void	Action(const std::string target) const;
 
 };
 

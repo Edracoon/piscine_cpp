@@ -30,8 +30,14 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	;
 }
 
-void	PresidentialPardonForm::Action(void) const
+void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
+{
+	verifGrade(*this, executor);
+	this->Action(this->target);
+}
+
+void	PresidentialPardonForm::Action(const std::string target) const
 {
 	std::cout << "Action PresidentialPardonForm : ..." << std::endl;
-	std::cout << this->target << " has been pardonned by Zafod Beeblebrox" << std::endl;
+	std::cout << target << " has been pardonned by Zafod Beeblebrox" << std::endl;
 }
