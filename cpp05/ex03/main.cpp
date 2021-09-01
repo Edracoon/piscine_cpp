@@ -4,6 +4,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main(void)
 {
@@ -31,7 +32,7 @@ int	main(void)
 		// std::cout << copyshrub << std::endl;
 
 		// std::cout << std::endl << "=== RobotomyRequestForm ===" << std::endl;
-		// Bureaucrat Micka("Micka", 1);
+		
 		// RobotomyRequestForm	robo("Kevin");			// Robotomy test
 		// std::cout << robo << std::endl;				// Affichage Form
 		// robo.beSigned(Micka);						// Signer le Form
@@ -51,6 +52,18 @@ int	main(void)
 		// PresidentialPardonForm	copypardon(presidpardon);	// Deep Copy Robotomy
 		// std::cout << copypardon << std::endl;
 		std::cout << "=== Intern Tests ===" << std::endl;
+		Bureaucrat Micka("Micka", 1);
+
+		Intern	Florent;
+		Form*	rrf;
+
+		rrf = Florent.makeForm("shrubbery creation", "maison");
+		std::cout << *rrf << std::endl;
+		rrf->beSigned(Micka);
+		std::cout << *rrf << std::endl;
+		rrf->execute(Micka);
+
+		delete rrf;
 	}
 	catch (std::exception& ex)	//	catch global qui va utiliser mes class
 	{							//	qui heritent de std::exception

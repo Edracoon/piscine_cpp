@@ -2,8 +2,8 @@
 # define FORM_HPP
 
 # include <iostream>
-#include <string>
-#include <fstream>
+# include <string>
+# include <fstream>
 
 class Bureaucrat;
 
