@@ -1,4 +1,4 @@
-NAME =		iter
+NAME =		array.sh
 
 CXX	 =		clang++
 

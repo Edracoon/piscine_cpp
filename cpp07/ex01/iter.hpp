@@ -2,13 +2,13 @@
 # define ITER_HPP
 
 #include <iostream>
-
-template< typename T >
-void	iter(T* arrayptr, unsigned int length, T (f)(T))
+											// template< typename F >
+template< typename T >						// ou F f
+void	iter(T* arrayptr, unsigned int length, void (f)(T))
 {
 	for(unsigned int i = 0 ; i < length ; i++)
 	{
-		(f)(*arrayptr[i]);
+		f(arrayptr[i]);
 	}
 }
 
