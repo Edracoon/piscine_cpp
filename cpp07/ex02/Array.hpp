@@ -12,12 +12,14 @@ class Array
 	public:
 			Array<T>( void )
 			{
+				std::cout << "Default constructor" << std::endl;
 				this->_array = NULL;
 				_size = 0;
 			}
 
 			Array( Array<T> const & rhs )
 			{
+				std::cout << "Copy constructor" << std::endl;
 				*this = rhs;
 			}
 
@@ -34,7 +36,7 @@ class Array
 				return (_size);
 			}
 
-			class OOLE	: public std::exception
+			class OLE	: public std::exception
 			{
 				public:
 					virtual const char* what() const throw( ) { return ("Exception: Out of the Limits"); }
@@ -42,9 +44,9 @@ class Array
 
 			T&			operator[]( int i )
 			{
-				if (i < (int)_size)
+				if (i >= 0 && i < (int)_size )
 					return (_array[i]);
-				throw OOLE();
+				throw OLE();
 			}
 
 			Array<T>&	operator=( Array<T> const & rhs )
