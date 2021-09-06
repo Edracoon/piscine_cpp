@@ -3,18 +3,21 @@
 
 int	main(void)
 {
-	std::string* s = new std::string;
-
-	std::cout << *s << std::endl;
-	Array<unsigned int> test = Array<unsigned int>(5);
 	try
 	{
-		std::cout << test[2] << std::endl;
+		Array<unsigned int> test = Array<unsigned int>(5);
+
 		Array<unsigned int> bonsoir = test;
 
-		Array<std::string> strs = Array<std::string>(4);
-		std::cout << strs[2] << std::endl;
+		std::cout << "test[0] :" << test[0] << std::endl;
+		test[0] = 2;
+		std::cout << "test[0] :" << test[0] << std::endl;
+		std::cout << "bonsoir[0] :" << bonsoir[0] << std::endl;
 
+		Array<std::string> strs = Array<std::string>(4);
+		std::cout << "str[2] :" << strs[2] << std::endl;
+		strs[2] = "bonsoir";
+		std::cout << "str[2] :" << strs[2] << std::endl;
 	}
 	catch (std::exception &e)
 	{

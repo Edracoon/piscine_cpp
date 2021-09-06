@@ -1,4 +1,4 @@
-NAME =		array.sh
+NAME =		array
 
 CXX	 =		clang++
 

@@ -24,7 +24,7 @@ class Array
 			Array( unsigned int n )
 			{
 				std::cout << "Parameter constructor" << std::endl;
-				_array = new T[n];
+				_array = new T[n]();
 				_size = n;
 			}
 
