@@ -4,15 +4,18 @@
 # include <iostream>
 # include <stack>
 
-template< typename T >
+template< typename T>
 class Mutantstack : public std::stack<T>
 {
-	private:
 	public:
-			Mutantstack( void ) { return (std::stack<T>()); }
-			Mutantstack( Mutantstack const & rhs ) { return (std::stack<T>(rhs)); }
+			Mutantstack( void ) { std::stack<T>(); }
+			Mutantstack( Mutantstack const & rhs ) { (std::stack<T>(rhs)); }
 
-			begin( this->c.begin() );
+			typename std::deque<T>::iterator	begin( void ) { return (this->c.begin()); }
+			typename std::deque<T>::iterator	end( void ) { return (this->c.end()); }
+
+			// Mutantstack&	operator=( Mutantstack const & rhs )
+			// { std::cout << "coucou" << std::endl; this->c = rhs.c; return (*this); }
 };
 
 #endif
