@@ -4,7 +4,6 @@ Span::Span( unsigned int N )
 {
 	_N = N;
 	_index = 0;
-	container = std::list<int>(N);
 }
 
 Span::~Span( void )
@@ -14,35 +13,40 @@ Span::~Span( void )
 
 int		Span::shortestSpan()
 {
+	std::vector<int>::const_iterator	it = container.begin();
+	std::vector<int>::const_iterator	ite = container.end();
+
 	int	span = INT_MAX;
 
-	container.sort();
+	std::sort(container.begin(), container.end());
 
-	std::list<int>::const_iterator	it;
-	std::list<int>::const_iterator	ite = container.end();
-
-	it = container.begin();
-	if (container.size() == 0)
+	if (_N == 0 || _N == 1)
 		throw SIE();
-	if (!*it)
-		throw NNSE();
+	if (_index == 0 || _index == 1)
+		throw NENSE();
+
+	++it;
 	for ( ; it != ite ; it++ )
 	{
-		if ((*it + 1) - *it < span)
-			span = (*it + 1) - *it;
+		if (*it - (*(it - 1)) <= span)
+			span = *it - (*(it - 1));
 	}
 	return (span);
 }
 
 int		Span::longestSpan()
 {
-	container.sort();
-	std::list<int>::const_iterator	it;
-	std::list<int>::const_iterator	ite = container.end();
+	std::vector<int>::const_iterator	it = container.begin();
+	std::vector<int>::const_iterator	ite = container.end();
 
-	for (it = container.begin() ; it != ite ; it++)
-		;
-	return (*it);
+	if (_N == 0 || _N == 1)
+		throw SIE();
+	if (_index == 0 || _index == 1)
+		throw NENSE();
+
+	std::sort(container.begin(), container.end());
+
+	return (*(ite - 1) - *it); // end = apres le dernier
 }
 
 void Span::addNumber( int numb )

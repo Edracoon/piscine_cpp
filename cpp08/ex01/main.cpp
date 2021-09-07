@@ -3,12 +3,57 @@
 
 int	main(void)
 {
-	std::list<int> list1(0);
+	try
+	{
+		{
+			Span	list(5);
 
-	// std::cout << list1.sort() << std::endl;
-	std::cout << list1.size() << std::endl;
-	std::list<int>::iterator it = list1.begin();
-	std::cout << *it << std::endl;
-	it++;
-	std::cout << *it << std::endl;
+			list.addNumber(-8);
+			list.addNumber(-10);
+			list.addNumber(5);
+			list.addNumber(190);
+			std::cout << "shortest span = " << list.shortestSpan() << std::endl;
+			std::cout << "longest span = " << list.longestSpan() << std::endl;
+
+			Span list2 = list;
+			list2.addNumber(-100);
+			std::cout << "shortest span = " << list2.shortestSpan() << std::endl;
+			std::cout << "longest span = " << list2.longestSpan() << std::endl;
+
+			std::cout << "shortest span = " << list.shortestSpan() << std::endl;
+			std::cout << "longest span = " << list.longestSpan() << std::endl;
+
+			Span sp = Span(5);
+			sp.addNumber(5);
+			sp.addNumber(3);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			sp.addNumber(11);
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		{
+			Span except(2);
+			except.addNumber(6);
+			except.addNumber(19);
+			except.addNumber(4); // container full
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	try {
+		Span except2(1);
+		except2.shortestSpan(); } // Size invalid 
+	catch(const std::exception& e) {
+		std::cerr << e.what() << std::endl; }
+
+	try {
+		Span except3(4);
+		except3.addNumber(2);
+		std::cerr << except3.shortestSpan() << std::endl; } // Not enough numbers
+	catch(const std::exception& e) {
+		std::cerr << e.what() << std::endl; }
 }
