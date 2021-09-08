@@ -13,8 +13,8 @@ class Mutantstack : public std::stack<T>
 
 			typedef typename std::deque<T>::iterator iterator;
 
-			typename std::deque<T>::iterator	begin( void ) { return (this->c.begin() ); }
-			typename std::deque<T>::iterator	end( void ) { return (this->c.end() ); }
+			iterator	begin( void ) { return (this->c.begin() ); }
+			iterator	end( void ) { return (this->c.end() ); }
 
 			Mutantstack&	operator=( Mutantstack const & rhs )
 			{ this->c = rhs.c; return (*this); }
