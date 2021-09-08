@@ -11,8 +11,10 @@ class Mutantstack : public std::stack<T>
 			Mutantstack( void ) { std::stack<T>(); }
 			Mutantstack( Mutantstack const & rhs ) { (std::stack<T>(rhs)); }
 
-			typename std::deque<T>::iterator	begin( void ) { return (this->c.begin()); }
-			typename std::deque<T>::iterator	end( void ) { return (this->c.end()); }
+			typedef typename std::deque<T>::iterator iterator;
+
+			typename std::deque<T>::iterator	begin( void ) { return (this->c.begin() ); }
+			typename std::deque<T>::iterator	end( void ) { return (this->c.end() ); }
 
 			Mutantstack&	operator=( Mutantstack const & rhs )
 			{ this->c = rhs.c; return (*this); }
