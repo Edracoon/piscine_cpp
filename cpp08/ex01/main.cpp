@@ -56,4 +56,19 @@ int	main(void)
 		std::cerr << except3.shortestSpan() << std::endl; } // Not enough numbers
 	catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl; }
+
+	try {	// 10000 numbers
+		std::vector<int>					vect(10000);
+		std::vector<int>::const_iterator	it = vect.begin();
+		std::vector<int>::const_iterator	ite = vect.end();
+
+		Span	vectthousand = Span(it, ite);
+
+		std::cout << vectthousand.longestSpan() << std::endl;
+		std::cout << vectthousand.shortestSpan() << std::endl;
+
+		vectthousand.addNumber(15);	// container full
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl; }
 }

@@ -5,7 +5,6 @@
 # include <vector>
 # include <limits>
 # include <vector>
-# include <algorithm>
 
 class Span
 {
@@ -15,11 +14,11 @@ class Span
 			unsigned int		_index;
 			
 	public:
-			Span( void ) { _N = 0; _index = 0; }		// default ??
+			Span( void ) { _N = 0; _index = 0; }		// default
 			Span( unsigned int N );						// param
 			Span( Span const & rhs ) { *this = rhs; };	// copy
+			Span( std::vector<int>::const_iterator it, std::vector<int>::const_iterator ite);
 			~Span( void );
-
 
 			class CFE : public std::exception
 			{

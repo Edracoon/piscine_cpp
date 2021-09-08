@@ -6,10 +6,19 @@ Span::Span( unsigned int N )
 	_index = 0;
 }
 
-Span::~Span( void )
+Span::Span( std::vector<int>::const_iterator it, std::vector<int>::const_iterator ite )
 {
-
+	int	i = 0;
+	_index = 0;
+	_N = 0;
+	for ( ; it != ite ; it++)
+	{
+		_N++;
+		addNumber(i++);
+	}
 }
+
+Span::~Span( void ) { }
 
 int		Span::shortestSpan()
 {
